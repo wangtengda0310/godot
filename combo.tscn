@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq0hrwfqyq5n7"]
+
+[ext_resource type="Script" path="res://combo.gd" id="1_gdfx5"]
+[ext_resource type="PackedScene" uid="uid://7kowkugjo4c1" path="res://main.tscn" id="2_h7jo5"]
+
+[node name="combo" type="Node2D"]
+script = ExtResource("1_gdfx5")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="main" parent="GridContainer" instance=ExtResource("2_h7jo5")]
+
+[node name="main2" parent="GridContainer" instance=ExtResource("2_h7jo5")]
+position = Vector2(4, 69)
