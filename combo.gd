@@ -39,3 +39,7 @@ func add_player_peer():
 	
 func peer_cmd_f(content):
 	print("accept peer cmd")
+
+
+func _on_main_peer_cmd(content: Variant) -> void:
+	print(content)

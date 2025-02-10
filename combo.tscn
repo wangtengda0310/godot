@@ -12,6 +12,10 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="main" parent="GridContainer" instance=ExtResource("2_h7jo5")]
+mouse_input = true
 
 [node name="main2" parent="GridContainer" instance=ExtResource("2_h7jo5")]
 position = Vector2(-1, 69)
+
+[connection signal="peer_cmd" from="GridContainer/main" to="." method="_on_main_peer_cmd"]
+[connection signal="peer_cmd" from="GridContainer/main2" to="." method="_on_main_peer_cmd"]
