@@ -1,4 +1,7 @@
 extends Node2D
+class_name player
+
+signal peer_cmd(content)
 
 var peer := WebSocketMultiplayerPeer.new()
 
@@ -14,19 +17,17 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-@onready var control: Control = $Control
-
 @rpc
 func log(content):
-	print("log:"+content)
+	peer_cmd.emit(content)
+	print("log: emit signal peer_cmd"+content)
 
 func _peer_connected(id):
 	print("peer connect"+str(id))
 	log.rpc("peer connect"+str(id))
-	control.log.rpc("peer connect"+str(id))
 
 func _peer_disconnected(id):
-	print("peer disconnected"+id)
+	print("peer disconnected",id)
 
 func _close_network():
 	multiplayer.multiplayer_peer.close()
